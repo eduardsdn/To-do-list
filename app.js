@@ -34,7 +34,14 @@ function displayTasks(tasks){
                               <button class="delete-note-btn">x</button>`
 
         newTask.innerHTML = newTaskContent
-
+        
+    
+        deleteBtn = newTask.querySelector(".delete-note-btn")
+        console.log(deleteBtn)
+        
+        deleteBtn.addEventListener('click', deleteNote)
+        
+        
 
         tasksContainer = document.querySelector(".list-holder")
         
@@ -44,6 +51,11 @@ function displayTasks(tasks){
         }
     }
 }
+
+function deleteNote(){ 
+    
+}
+
 
 
 
