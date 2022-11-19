@@ -3,6 +3,7 @@ tasks = [] //list of all task objects
 
 function task(content){ //Task object constructor
     this.content = content;
+    this.isDisplayed = false;
 }
 
 form = document.getElementById("form")
@@ -34,9 +35,13 @@ function displayTasks(tasks){
 
         newTask.innerHTML = newTaskContent
 
+
         tasksContainer = document.querySelector(".list-holder")
         
-        // tasksContainer.appendChild(newTask)
+        if(tasks[i].isDisplayed === false){
+            tasksContainer.appendChild(newTask)
+            tasks[i].isDisplayed = true
+        }
     }
 }
 
