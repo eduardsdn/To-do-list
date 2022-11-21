@@ -7,21 +7,21 @@ function task(content){ //Task object constructor
 }
 
 form = document.getElementById("form")
-form.addEventListener('submit', function(event){
+form.addEventListener('submit', createTasks)
+
+function createTasks(event){
     event.preventDefault()
-
     let content = document.getElementById('text-input').value
-
     let taskObj = new task(content)
     
     tasks.push(taskObj)
 
-    console.log(tasks)
-
     displayTasks(tasks)
-})
+}
 
 function displayTasks(tasks){
+
+    tasksContainer = document.querySelector(".list-holder")
     for(let i = 0; i < tasks.length; i++) {
         let newTask = document.createElement("li")
         newTask.classList.add("task")
@@ -35,15 +35,17 @@ function displayTasks(tasks){
 
         newTask.innerHTML = newTaskContent
         
-    
         deleteBtn = newTask.querySelector(".delete-note-btn")
-        console.log(deleteBtn)
-        
-        deleteBtn.addEventListener('click', deleteNote)
-        
-        
-
-        tasksContainer = document.querySelector(".list-holder")
+    
+        deleteBtn.addEventListener('click', function(){
+            tasks.splice(i,1)
+            for (let i = 0; i < tasks.length; i++){
+                tasks[i].isDisplayed = false
+            }
+            
+            tasksContainer.innerHTML = ""
+            displayTasks(tasks)
+        })
         
         if(tasks[i].isDisplayed === false){
             tasksContainer.appendChild(newTask)
@@ -52,9 +54,6 @@ function displayTasks(tasks){
     }
 }
 
-function deleteNote(){ 
-    
-}
 
 
 
