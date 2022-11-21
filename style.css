@@ -17,7 +17,7 @@ html, body{
 }
 
 .list-holder{
-    width: 100%;
+    width: 40%;
 }
 
 .list{
@@ -27,7 +27,7 @@ html, body{
 .task{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
     margin: 0%;
 }
@@ -51,4 +51,10 @@ html, body{
 #text-input{
     width:300px;
     height:20px;
+    flex-wrap: wrap;
+}
+
+p{
+    display: flex;
+    flex-wrap: wrap;
 }
